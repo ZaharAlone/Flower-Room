@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 9512fe885819d2b4ab377e07dc34d4bd
+  m_SerializeEntries:
+  - m_GUID: 7eae6eb213aac304f94e788a18a19cca
+    m_Address: GameUI
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0085d187118c76145a81b39a0663fdc7
+    m_Address: TraderowConfig
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0a8f720ca2ac7224e82df9029198f764
+    m_Address: Input
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 083ef785c53de314e8a0d81805defdf5
+    m_Address: ClickerConfig
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 9a2fc170e3709a24590b2bcd0a16de28, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d1551eb90c7435c46930dda3ff6a5934, type: 2}
+    - {fileID: 11400000, guid: d59c273a9eec691478a8d21e22f45eee, type: 2}
