@@ -4,8 +4,10 @@ namespace FlowerRoom.Core.Clicker.Items
     {
         public string KeyItem;
         public string GUID;
+
+        public int CurrentGradePlant;
         
-        public float MultiplierValue;
+        public float AddCurrencyPerSecond;
         public ClickerItemsType ClickerItemsType;
         public ClickerItemMono ClickerItemMono;
 

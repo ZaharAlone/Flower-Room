@@ -33,6 +33,10 @@ MonoBehaviour:
     m_Address: ClickerConfig
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 20bda49497f964444b8b094352a24203
+    m_Address: ClickerItemsViewConfig
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 9a2fc170e3709a24590b2bcd0a16de28, type: 2}
   m_SchemaSet:

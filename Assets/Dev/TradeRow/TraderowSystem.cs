@@ -30,12 +30,13 @@ namespace CyberNet.Core
             var traderowUI = _dataWorld.OneData<GameUIData>().GameUI.TrederowUIMono;
             var configTraderowData = _dataWorld.OneData<TraderowData>();
             var configCurrentLevel = configTraderowData.TraderowConfig.LevelsTraderowConfig[indexLevel];
+            var clickerItemView = _dataWorld.OneData<ClickerConfigData>().ItemView;
             
             foreach (var itemTraderow in configCurrentLevel.ItemsTraderow)
             {
                 var itemInTraderowMono = Object.Instantiate(configTraderowData.ItemInTraderowMonoPrefab,
                     traderowUI.ContainerItemInTraderow);
-                var iconsItem = configTraderowData.ItemViewTraderows[itemTraderow.KeyItem].IconsItem;
+                var iconsItem = clickerItemView[itemTraderow.KeyItem].IconsItem;
                 
                 itemInTraderowMono.SetViewItem(itemTraderow.KeyItem, iconsItem, itemTraderow.Price[0], itemTraderow.Price.Count);
             }

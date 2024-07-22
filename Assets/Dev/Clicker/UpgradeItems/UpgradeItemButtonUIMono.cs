@@ -17,21 +17,42 @@ namespace FlowerRoom.Core.Clicker.UpgradeItems
         [SerializeField]
         [Required]
         private TextMeshProUGUI _priceText;
+
+        [SerializeField]
+        [Required]
+        private Button _button;
         
         [SerializeField]
         private Color32 _colorAvailablePurchase;
-        [SerializeField]
-        private Color32 _colorNotAvailablePurchase;
         
         [SerializeField]
         private Color32 _colorPriceTextNotAvailablePurchase;
 
         private int _currentPrice;
-        private bool _previousStatusAvailablePurchase;
+        private int _currentCurrency;
+        private bool _previousStatusAvailablePurchase = true;
+        private string _guid;
+
+        public void SetGuid(string guid)
+        {
+            _guid = guid;
+        }
+        
+        public void SetCurrentPriceItem(UpgradeClickerItemType targetTypeItem, int currentPrice)
+        {
+            if (targetTypeItem != _upgradeClickerItemType)
+                return;
+
+            _currentPrice = currentPrice;
+            _priceText.text = currentPrice.ToString();
+            
+            UpdateCurrentCurrencyPlayer(_currentCurrency);
+        }
         
         public void UpdateCurrentCurrencyPlayer(int currentCurrencyPlayer)
         {
             var newStatusAvailablePurchase = currentCurrencyPlayer >= _currentPrice;
+            _currentCurrency = currentCurrencyPlayer;
             
             if (_previousStatusAvailablePurchase == newStatusAvailablePurchase)
                 return;
@@ -40,19 +61,19 @@ namespace FlowerRoom.Core.Clicker.UpgradeItems
             
             if (currentCurrencyPlayer >= _currentPrice)
             {
-                _iconsItem.color = _colorAvailablePurchase;
                 _priceText.color = _colorAvailablePurchase;
+                _button.interactable = true;
             }
             else
             {
-                _iconsItem.color = _colorNotAvailablePurchase;
                 _priceText.color = _colorPriceTextNotAvailablePurchase;
+                _button.interactable = false;
             }
         }
 
         public void BuyUpgrade()
         {
-            UpgradeItemAction.UpgradeItem?.Invoke(_upgradeClickerItemType);
+            UpgradeItemAction.UpgradeItem?.Invoke(_guid, _upgradeClickerItemType);
         }
     }
 }

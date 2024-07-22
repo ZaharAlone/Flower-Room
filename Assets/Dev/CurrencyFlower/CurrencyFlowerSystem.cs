@@ -4,6 +4,7 @@ using ModulesFramework.Data;
 using ModulesFramework.Systems;
 using UnityEngine;
 using System;
+using FlowerRoom.Core.Clicker.Items;
 using FlowerRoom.Core.GameUI;
 
 namespace FlowerRoom.Core.CurrencyFlower
@@ -50,9 +51,24 @@ namespace FlowerRoom.Core.CurrencyFlower
             var currencyFlowerData = _dataWorld.OneData<CurrencyFlowerData>();
             var currencyFlowerUI = _dataWorld.OneData<GameUIData>().GameUI.CurrencyFlowerUIMono;
             
-            //Округлять значение до тысяч, десятков тысяч, и добавлять букву, 1к, 10к, 1кк, и так далее
+            //TODO Округлять значение до тысяч, десятков тысяч, и добавлять букву, 1к, 10к, 1кк, и так далее
             
             currencyFlowerUI.SetViewCountCurrencyFlower(currencyFlowerData.CountCurrencyFlower.ToString());
+
+            UpdateUIAllElementGameplay();
+        }
+
+        private void UpdateUIAllElementGameplay()
+        {
+            var countCurrencyFlower = _dataWorld.OneData<CurrencyFlowerData>().CountCurrencyFlower;
+
+            var clickerItemsEntities = _dataWorld.Select<ClickerItemComponent>().GetEntities();
+
+            foreach (var clickerItemsEntity in clickerItemsEntities)
+            {
+                var clickerItemComponent = clickerItemsEntity.GetComponent<ClickerItemComponent>();
+                clickerItemComponent.ClickerItemMono.UpdateCurrencyButtonsUpgrade(countCurrencyFlower);
+            }
         }
 
         public void Destroy()

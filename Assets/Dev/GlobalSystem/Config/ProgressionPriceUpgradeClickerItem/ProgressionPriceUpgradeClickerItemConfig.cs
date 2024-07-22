@@ -8,10 +8,19 @@ namespace FlowerRoom.Core.Clicker.UpgradeItems
     public struct ProgressionPriceUpgradeClickerItemConfig
     {
         [JsonProperty("watering_prices")]
-        public List<int> WateringPrices;
+        public List<ProgressionPriceValue> WateringPrices;
         [JsonProperty("weeding_prices")]
-        public List<int> WeedingPrices;
+        public List<ProgressionPriceValue> WeedingPrices;
         [JsonProperty("fertilizing_prices")]
-        public List<int> FertilizingPrices;
+        public List<ProgressionPriceValue> FertilizingPrices;
+    }
+
+    [Serializable]
+    public struct ProgressionPriceValue
+    {
+        [JsonProperty("value")]
+        public float Value;
+        [JsonProperty("price")]
+        public int Price;
     }
 }

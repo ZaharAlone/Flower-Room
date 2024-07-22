@@ -15,9 +15,7 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 21300000, guid: 7ef55cb832d135a468ace5f51b3feccf, type: 3}
-    - {fileID: 1981486204435169082, guid: cbe6b8d506f113b4ba7331166a54ce5f, type: 3}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -25,7 +23,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: ItemViewTraderows
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[FlowerRoom.Core.Traderow.ItemViewTraderow,
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[FlowerRoom.Core.Clicker.ItemViewTraderow,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
@@ -45,16 +43,19 @@ MonoBehaviour:
       Data: flower
     - Name: $v
       Entry: 7
-      Data: FlowerRoom.Core.Traderow.ItemViewTraderow, Assembly-CSharp
+      Data: FlowerRoom.Core.Clicker.ItemViewTraderow, Assembly-CSharp
     - Name: IconsItem
-      Entry: 10
-      Data: 0
+      Entry: 6
+      Data: 
     - Name: ClickerItemsType
       Entry: 3
       Data: 0
     - Name: ItemPrefab
-      Entry: 10
-      Data: 1
+      Entry: 6
+      Data: 
+    - Name: StatePlantGrowth
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 

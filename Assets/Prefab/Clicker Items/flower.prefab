@@ -104,7 +104,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -151,12 +151,10 @@ MonoBehaviour:
   _upgradeClickerItemType: 1
   _iconsItem: {fileID: 8265203169884108714}
   _priceText: {fileID: 3574913820164479558}
+  _button: {fileID: 5038419245563936176}
   _colorAvailablePurchase:
     serializedVersion: 2
     rgba: 4294967295
-  _colorNotAvailablePurchase:
-    serializedVersion: 2
-    rgba: 4291348680
   _colorPriceTextNotAvailablePurchase:
     serializedVersion: 2
     rgba: 4278190280
@@ -330,6 +328,7 @@ RectTransform:
   m_Children:
   - {fileID: 6674818291068036640}
   - {fileID: 50421937267636914}
+  - {fileID: 3743272155803315450}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -435,6 +434,11 @@ MonoBehaviour:
   _keyItem: flower
   _panelUpgradeItem: {fileID: 6634734806816891699}
   _perValueSecondsFlowerText: {fileID: 3126278380117186219}
+  _upgradeItemsButtonList:
+  - {fileID: 1404202940985100987}
+  - {fileID: 2067197490305979946}
+  - {fileID: 5518985331613165776}
+  _imagePlantGrowth: {fileID: 8919703895494735696}
 --- !u!225 &560888184885963053
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -582,6 +586,82 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &3974892787090575379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3743272155803315450}
+  - component: {fileID: 1344501286244954565}
+  - component: {fileID: 8919703895494735696}
+  m_Layer: 5
+  m_Name: plant_growth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &3743272155803315450
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3974892787090575379}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1882293127768585227}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 121.7}
+  m_SizeDelta: {x: 109.666664, y: 149.33333}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1344501286244954565
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3974892787090575379}
+  m_CullTransparentMesh: 1
+--- !u!114 &8919703895494735696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3974892787090575379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 212ca62345eb3684c82e2985f4d060f0, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &3997079941850453315
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,7 +901,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -868,12 +948,10 @@ MonoBehaviour:
   _upgradeClickerItemType: 2
   _iconsItem: {fileID: 6959934818592666257}
   _priceText: {fileID: 5373296248111432020}
+  _button: {fileID: 2557265422793949327}
   _colorAvailablePurchase:
     serializedVersion: 2
     rgba: 4294967295
-  _colorNotAvailablePurchase:
-    serializedVersion: 2
-    rgba: 4291348680
   _colorPriceTextNotAvailablePurchase:
     serializedVersion: 2
     rgba: 4278190280
@@ -915,7 +993,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 68, y: 12.5}
+  m_AnchoredPosition: {x: 95.4, y: 12.5}
   m_SizeDelta: {x: 161, y: 418}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4447026472161708989
@@ -1195,7 +1273,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1242,12 +1320,10 @@ MonoBehaviour:
   _upgradeClickerItemType: 0
   _iconsItem: {fileID: 235822931659858794}
   _priceText: {fileID: 6237178424399021606}
+  _button: {fileID: 4934746548082432183}
   _colorAvailablePurchase:
     serializedVersion: 2
     rgba: 4294967295
-  _colorNotAvailablePurchase:
-    serializedVersion: 2
-    rgba: 4291348680
   _colorPriceTextNotAvailablePurchase:
     serializedVersion: 2
     rgba: 4278190280

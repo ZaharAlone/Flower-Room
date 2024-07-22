@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328cdaefbce7401a8839c0bef601352b, type: 3}
+  m_Name: ClickerItemsViewConfig
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 21300000, guid: 7ef55cb832d135a468ace5f51b3feccf, type: 3}
+    - {fileID: 1981486204435169082, guid: cbe6b8d506f113b4ba7331166a54ce5f, type: 3}
+    - {fileID: 21300000, guid: a6e5c930f62eacb4b8370ae283055299, type: 3}
+    - {fileID: 21300000, guid: e3694684a031518419a15ccadb3eeca8, type: 3}
+    - {fileID: 21300000, guid: 622717cbf2cb4e147a8130c8db868811, type: 3}
+    - {fileID: 21300000, guid: 4419e80eafc4df145ada1cff8b81525f, type: 3}
+    - {fileID: 21300000, guid: 2b370ceda72427642b89c059308f1dd0, type: 3}
+    - {fileID: 21300000, guid: c02834261f8d6564c89009fa6decfca1, type: 3}
+    - {fileID: 21300000, guid: 7104f1d56e4c6f14bb93bb969c55c593, type: 3}
+    - {fileID: 21300000, guid: 212ca62345eb3684c82e2985f4d060f0, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: ItemsView
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[FlowerRoom.Core.Clicker.ItemViewTraderow,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: flower
+    - Name: $v
+      Entry: 7
+      Data: FlowerRoom.Core.Clicker.ItemViewTraderow, Assembly-CSharp
+    - Name: IconsItem
+      Entry: 10
+      Data: 0
+    - Name: ClickerItemsType
+      Entry: 3
+      Data: 0
+    - Name: ItemPrefab
+      Entry: 10
+      Data: 1
+    - Name: StatePlantGrowth
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[UnityEngine.Sprite, UnityEngine.CoreModule]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 8
+    - Name: 
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 10
+      Data: 8
+    - Name: 
+      Entry: 10
+      Data: 9
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  PowerSwitchView: 00000000010000000a00000019000000320000006400000096000000fa000000e8030000
