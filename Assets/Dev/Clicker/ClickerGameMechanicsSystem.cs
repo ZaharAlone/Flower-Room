@@ -7,6 +7,8 @@ using System;
 using FlowerRoom.Core.Clicker;
 using FlowerRoom.Core.CurrencyFlower;
 using FlowerRoom.Core.GameUI;
+using FlowerRoom.Core.MoveItem;
+using Input;
 using Object = UnityEngine.Object;
 
 namespace FlowwerRoom.Core.Clicker
@@ -45,6 +47,10 @@ namespace FlowwerRoom.Core.Clicker
 
         private void ClickItem(string keyItem)
         {
+            var isMoveItem = _dataWorld.Select<InteractiveMoveComponent>().Count() > 0;
+            if (isMoveItem)
+                return;
+            
             var clickPower = _dataWorld.OneData<ClickerPowerData>().ClickPower;
             CurrencyFlowerAction.AddCurrencyFlower?.Invoke(clickPower);
             SpawnClickerAnimations(clickPower);
@@ -55,6 +61,14 @@ namespace FlowwerRoom.Core.Clicker
             var uiContainerForSpawnElement = _dataWorld.OneData<GameUIData>().GameUI.ClickerAnimationsContainer;
             var spawnElement = _dataWorld.OneData<ClickerConfigData>().ClickerConfigSO.ClickerAnimationsTextMono;
             var spawnMono = Object.Instantiate(spawnElement, uiContainerForSpawnElement);
+
+            var mousePositions = _dataWorld.OneData<InputData>().MousePosition;
+            var gameUI = _dataWorld.OneData<GameUIData>().GameUI;
+
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                gameUI.Canvas.transform as RectTransform, mousePositions, gameUI.Canvas.worldCamera, out Vector2 localPoint);
+            spawnMono.RectTransform.anchoredPosition = localPoint;
+            
             spawnMono.StartAnimations(value);
         }
 

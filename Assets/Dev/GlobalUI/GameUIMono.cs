@@ -8,6 +8,8 @@ namespace FlowerRoom.Core.GameUI
     public class GameUIMono : MonoBehaviour
     {
         [Required]
+        public Canvas Canvas;
+        [Required]
         public CurrencyFlowerUIMono CurrencyFlowerUIMono;
         [Required]
         public TrederowUIMono TrederowUIMono;

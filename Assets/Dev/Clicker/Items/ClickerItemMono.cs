@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using FlowerRoom.Core.Clicker.UpgradeItems;
+using FlowerRoom.Core.MoveItem;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -28,8 +29,11 @@ namespace FlowerRoom.Core.Clicker.Items
         [SerializeField]
         [Required]
         private Image _imagePlantGrowth;
+
+        public RectTransform RectTransform;
         
         private string _guid;
+        private bool _notShowPanelUpgrade;
         
         public void OnEnable()
         {
@@ -74,22 +78,45 @@ namespace FlowerRoom.Core.Clicker.Items
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            if (eventData.button != PointerEventData.InputButton.Left)
-                return;
-            
-            ClickerAction.ClickItem?.Invoke(_keyItem);
+            if (eventData.button == PointerEventData.InputButton.Left)
+            {
+                ClickerAction.ClickItem?.Invoke(_keyItem);
+            }
+            else if (eventData.button == PointerEventData.InputButton.Right)
+            {
+                MoveItemAction.StartMoveItem?.Invoke(_guid);
+            }
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            _panelUpgradeItem.SetActive(true);
-            _perValueSecondsFlowerText.gameObject.SetActive(true);
+            if (_notShowPanelUpgrade)
+                return;
+            
+            ShowHidePanelUpgrade(true);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            _panelUpgradeItem.SetActive(false);
-            _perValueSecondsFlowerText.gameObject.SetActive(false);
+            ShowHidePanelUpgrade(false);
+        }
+
+        private void ShowHidePanelUpgrade(bool isShow)
+        {
+            _panelUpgradeItem.SetActive(isShow);
+            _perValueSecondsFlowerText.gameObject.SetActive(isShow);
+        }
+
+        public void ForceHidePanelUpgrade()
+        {
+            _notShowPanelUpgrade = true;
+            ShowHidePanelUpgrade(false);
+        }
+        
+        public void ForceShowPanelUpgrade()
+        {
+            _notShowPanelUpgrade = false;
+            ShowHidePanelUpgrade(true);
         }
     }
 }

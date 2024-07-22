@@ -7,9 +7,9 @@ namespace FlowerRoom.Core.Clicker.AnimationsClick
 {
     public class ClickerAnimationsTextMono : MonoBehaviour
     {
-        [SerializeField]
         [Required]
-        private RectTransform _rectTransform;
+        public RectTransform RectTransform;
+        
         [SerializeField]
         [Required]
         private TextMeshProUGUI _textValue;
@@ -23,7 +23,7 @@ namespace FlowerRoom.Core.Clicker.AnimationsClick
 
             _sequence = DOTween.Sequence();
             _sequence.Append(_textValue.DOFade(0.2f, 2.5f))
-                .Join(_rectTransform.DOLocalMoveY(220, 2.5f))
+                .Join(RectTransform.DOLocalMoveY(220, 2.5f))
                 .OnComplete(() => RemoveObject());
         }
 

@@ -5,6 +5,7 @@ using ModulesFramework.Systems;
 using UnityEngine;
 using FlowerRoom.Core.Clicker.UpgradeItems;
 using FlowerRoom.Core.GameUI;
+using FlowerRoom.Core.MoveItem;
 using Input;
 using Tools;
 using Object = UnityEngine.Object;
@@ -26,12 +27,16 @@ namespace FlowerRoom.Core.Clicker.Items
         private void AddNewItemScene(string keyItem)
         {
             var viewNewItem = _dataWorld.OneData<ClickerConfigData>().ItemView[keyItem];
-            var containerItems = _dataWorld.OneData<GameUIData>().GameUI.ClickerItemsContainer;
+            var gameUI = _dataWorld.OneData<GameUIData>().GameUI;
+            var containerItems = gameUI.ClickerItemsContainer;
             var mousePositions = _dataWorld.OneData<InputData>().MousePosition;
-            //TODO добавить перемещение и установку предмета
             var newClickerItemMono = Object.Instantiate(viewNewItem.ItemPrefab, containerItems.transform);
-            //newItem.transform.position = mousePositions.Value;
 
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                gameUI.Canvas.transform as RectTransform, mousePositions, gameUI.Canvas.worldCamera, out Vector2 localPoint);
+
+            newClickerItemMono.RectTransform.anchoredPosition = localPoint;
+            
             var guidNewItem = CreateGUID.Create();
             newClickerItemMono.SetGUID(guidNewItem);
 
@@ -47,7 +52,15 @@ namespace FlowerRoom.Core.Clicker.Items
                 FertilizingCountBuy = countClickerItemsInScene,
             };
 
-            _dataWorld.NewEntity().AddComponent(newItemComponent);
+            var entityNewItem = _dataWorld.NewEntity();
+            entityNewItem.AddComponent(newItemComponent);
+
+            entityNewItem.AddComponent(new InteractiveMoveComponent
+            {
+                StartMousePositions = mousePositions,
+            });
+            
+            newClickerItemMono.ForceHidePanelUpgrade();
             
             UpgradeItemAction.UpdateUIUpgradeItem?.Invoke(guidNewItem);
         }
