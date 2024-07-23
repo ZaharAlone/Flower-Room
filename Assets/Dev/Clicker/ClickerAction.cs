@@ -8,5 +8,8 @@ namespace FlowerRoom.Core.Clicker
         
         public static Action<int> ChangeAddPowerClick;
         public static Action<string> ClickItem;
+
+        public static Action<string> SelectItem;
+        public static Action DeselectItem;
     }
 }

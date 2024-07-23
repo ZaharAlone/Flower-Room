@@ -6,6 +6,7 @@ using UnityEngine;
 using System;
 using FlowerRoom.Core.Clicker.Items;
 using FlowerRoom.Core.GameUI;
+using FlowerRoom.Core.Traderow;
 
 namespace FlowerRoom.Core.CurrencyFlower
 {
@@ -68,6 +69,14 @@ namespace FlowerRoom.Core.CurrencyFlower
             {
                 var clickerItemComponent = clickerItemsEntity.GetComponent<ClickerItemComponent>();
                 clickerItemComponent.ClickerItemMono.UpdateCurrencyButtonsUpgrade(countCurrencyFlower);
+            }
+
+            var traderowItemsEntities = _dataWorld.Select<TraderowItemComponent>().GetEntities();
+
+            foreach (var traderowItemEntity in traderowItemsEntities)
+            {
+                var traderowItemComponent = traderowItemEntity.GetComponent<TraderowItemComponent>();
+                traderowItemComponent.ItemInTraderowMono.UpdateCurrentCurrencyPlayer(countCurrencyFlower);
             }
         }
 

@@ -18,6 +18,10 @@ namespace FlowerRoom.Core.Clicker.Items
         [SerializeField]
         [Required]
         private GameObject _panelUpgradeItem;
+
+        [SerializeField]
+        [Required]
+        private GameObject _panelText;
         
         [SerializeField]
         [Required]
@@ -38,7 +42,7 @@ namespace FlowerRoom.Core.Clicker.Items
         public void OnEnable()
         {
             _panelUpgradeItem.SetActive(false);
-            _perValueSecondsFlowerText.gameObject.SetActive(false);
+            _panelText.SetActive(false);
         }
 
         public void SetGUID(string guid)
@@ -65,9 +69,13 @@ namespace FlowerRoom.Core.Clicker.Items
             }
         }
         
-        public void UpdateValuePerSecondFlower(float value)
+        public void UpdateValuePerSecondFlower(float value, float bonusValue)
         {
-            _perValueSecondsFlowerText.text = "x" + value.ToString("F1");
+            var textValue = value.ToString("F1");
+
+            if (bonusValue > 0)
+                textValue += $"+<color=green> {bonusValue.ToString("F1")} </color>";
+            _perValueSecondsFlowerText.text = textValue;
         }
         
         public void SetStatePlantGrowth(Sprite imageState)
@@ -93,18 +101,20 @@ namespace FlowerRoom.Core.Clicker.Items
             if (_notShowPanelUpgrade)
                 return;
             
+            ClickerAction.SelectItem?.Invoke(_guid);
             ShowHidePanelUpgrade(true);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
+            ClickerAction.DeselectItem?.Invoke();
             ShowHidePanelUpgrade(false);
         }
 
         private void ShowHidePanelUpgrade(bool isShow)
         {
             _panelUpgradeItem.SetActive(isShow);
-            _perValueSecondsFlowerText.gameObject.SetActive(isShow);
+            _panelText.SetActive(isShow);
         }
 
         public void ForceHidePanelUpgrade()
@@ -117,6 +127,11 @@ namespace FlowerRoom.Core.Clicker.Items
         {
             _notShowPanelUpgrade = false;
             ShowHidePanelUpgrade(true);
+        }
+
+        public void EnablePerSecondValueCurrency(bool isShow)
+        {
+            _panelText.SetActive(isShow);
         }
     }
 }

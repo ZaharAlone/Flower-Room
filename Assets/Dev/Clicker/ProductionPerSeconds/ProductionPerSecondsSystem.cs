@@ -31,14 +31,20 @@ namespace FlowerRoom.Core.Clicker.ProductionPerSeconds
         {
             var clickerItemsEntities = _dataWorld.Select<ClickerItemComponent>().GetEntities();
 
+            var debugCheckAdd = 0f;
             foreach (var clickerItemEntity in clickerItemsEntities)
             {
                 var clickerItemComponent = clickerItemEntity.GetComponent<ClickerItemComponent>();
-                var perSecondResource = (int)Mathf.Floor(clickerItemComponent.AddCurrencyPerSecond);
+                var finalAddResource = clickerItemComponent.AddCurrencyPerSecond + clickerItemComponent.BonusValuePerSecond;
+                var perSecondResource = (int)Mathf.Floor(finalAddResource);
 
                 if (perSecondResource > 0)
                     CurrencyFlowerAction.AddCurrencyFlower.Invoke(perSecondResource);
+
+                debugCheckAdd += perSecondResource;
             }
+            
+            Debug.Log($"final add in second {debugCheckAdd}");
         }
     }
 }

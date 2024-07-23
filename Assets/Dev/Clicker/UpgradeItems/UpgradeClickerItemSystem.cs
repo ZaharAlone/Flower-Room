@@ -1,5 +1,6 @@
 using System;
 using EcsCore;
+using FlowerRoom.Core.Clicker.BonusPlant;
 using FlowerRoom.Core.Clicker.Items;
 using FlowerRoom.Core.CurrencyFlower;
 using ModulesFramework.Attributes;
@@ -46,13 +47,13 @@ namespace FlowerRoom.Core.Clicker.UpgradeItems
             
             CurrencyFlowerAction.SubCurrencyFlower.Invoke(priceValueUpgrade.Price);
             selectClickerItemComponent.AddCurrencyPerSecond += priceValueUpgrade.Value;
-            selectClickerItemComponent.ClickerItemMono.UpdateValuePerSecondFlower(selectClickerItemComponent.AddCurrencyPerSecond);
             
+            BonusPlantAction.UpdateViewBonus?.Invoke();
             UpgradeItemAction.UpdateUIUpgradeItem?.Invoke(guid);
 
             SwitchVisualGradePlant(guid);
         }
-
+        
         private void SwitchVisualGradePlant(string guid)
         {
             var selectClickerItemEntity = _dataWorld.Select<ClickerItemComponent>()

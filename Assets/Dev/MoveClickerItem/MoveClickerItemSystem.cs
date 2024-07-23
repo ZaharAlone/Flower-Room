@@ -4,6 +4,7 @@ using ModulesFramework.Data;
 using ModulesFramework.Systems;
 using UnityEngine;
 using System;
+using FlowerRoom.Core.Clicker.BonusPlant;
 using FlowerRoom.Core.Clicker.Items;
 using Input;
 
@@ -84,6 +85,8 @@ namespace FlowerRoom.Core.MoveItem
             moveItemEntity.RemoveComponent<InteractiveMoveComponent>();
             
             moveItemComponent.ClickerItemMono.ForceShowPanelUpgrade();
+            
+            BonusPlantAction.EndMoveClickerItem?.Invoke();
         }
         
         private bool IsInDropZone()

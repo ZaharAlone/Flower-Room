@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using EcsCore;
 using ModulesFramework.Attributes;
 using ModulesFramework.Data;
@@ -18,6 +19,8 @@ namespace FlowerRoom.Core.Clicker.Items
         private DataWorld _dataWorld;
 
         private GameObject _containerClickerItems;
+
+        private const float power_bonus_plant = 0.2f;
         
         public void PreInit()
         {
@@ -46,10 +49,12 @@ namespace FlowerRoom.Core.Clicker.Items
             {
                 KeyItem = keyItem,
                 GUID = guidNewItem,
+                PowerBonus = power_bonus_plant,
                 ClickerItemMono = newClickerItemMono,
                 WateringCountBuy = countClickerItemsInScene,
                 WeedingCountBuy = countClickerItemsInScene,
                 FertilizingCountBuy = countClickerItemsInScene,
+                BonusPlants = new List<string>(),
             };
 
             var entityNewItem = _dataWorld.NewEntity();
